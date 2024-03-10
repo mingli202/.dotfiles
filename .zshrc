@@ -3,8 +3,12 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
 
+# cargo
+source "$HOME/.cargo/env"
+# export PATH="/Users/vincentliu/.cargo/bin:$PATH"
+
 # llvm
-export PATH="/opt/homebrew/Cellar/llvm/17.0.6_1/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # dotnet
 export PATH="/usr/local/share/dotnet:$PATH"
