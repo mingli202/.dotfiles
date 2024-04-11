@@ -17,7 +17,7 @@ export DOTNET_ROOT="/usr/local/share/dotnet"
 alias ls="eza"
 alias lt="eza --tree"
 
-alias pip="pip3"
+# alias pip="pip3"
 alias v="nvim"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -31,3 +31,11 @@ if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# bun completions
+[ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
