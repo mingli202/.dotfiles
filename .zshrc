@@ -14,11 +14,15 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
-alias ls="eza"
+# alias
+alias ls="eza -l"
 alias lt="eza --tree"
 
-# alias pip="pip3"
 alias v="nvim"
+
+alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias vf="nvim \$(fz)"
+alias cdf="cd \$(fd -H -t d | fzf)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -31,6 +35,7 @@ if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
 
 # bun completions
 [ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"
