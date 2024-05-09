@@ -24,6 +24,8 @@ alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}
 alias vf="nvim \$(fz)"
 alias cdf="cd \$(fd -H -t d | fzf)"
 
+alias lg="lazygit"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
