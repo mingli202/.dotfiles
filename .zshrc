@@ -15,7 +15,7 @@ export PATH="/usr/local/share/dotnet:$PATH"
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # alias
-alias ls="eza -l"
+alias ls="eza -l --group-directories-first -F --icons"
 alias lt="eza --tree"
 
 alias v="nvim"
