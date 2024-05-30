@@ -15,8 +15,9 @@ export PATH="/usr/local/share/dotnet:$PATH"
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # alias
-alias ls="eza -l --group-directories-first -F --icons"
-alias lt="eza --tree"
+alias ls="eza --group-directories-first -F --icons -1"
+alias ll="eza -l --group-directories-first -F --icons -h --git"
+alias lt="eza --tree --git-ignore"
 
 alias v="nvim"
 
@@ -25,6 +26,8 @@ alias vf="nvim \$(fz)"
 alias cdf="cd \$(fd -H -t d | fzf)"
 
 alias lg="lazygit"
+
+alias cl="clear"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

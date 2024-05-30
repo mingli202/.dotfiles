@@ -1,3 +1,5 @@
+command_timeout = 500
+
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
@@ -105,7 +107,7 @@ style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [rust]
-symbol = ""
+symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
