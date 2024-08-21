@@ -5,40 +5,35 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
 
+#postgresql
+export PATH="/Library/PostgreSQL/16/bin:$PATH"
+export PGDATA="/Library/PostgreSQL/16/data"
+
 # cargo
-# shellcheck source=/Users/vincentliu/.cargo/env
 source "$HOME/.cargo/env"
-# export PATH="/Users/vincentliu/.cargo/bin:$PATH"
-
-# llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-
-# dotnet
-export PATH="/usr/local/share/dotnet:$PATH"
-export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # alias
-alias ls="eza --group-directories-first -F --icons -1"
+alias ls="eza --group-directories-first -F --icons"
 alias ll="eza -l --group-directories-first -F --icons -h --git"
 alias lt="eza --tree --git-ignore"
 
 alias v="nvim"
+alias nv="neovide --frame none"
 
 alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias vf="nvim \$(fz)"
+alias nvf="neovide --frame none \$(fz)"
 alias cdf="cd \$(fd -H -t d | fzf)"
 
 alias lg="lazygit"
 
 alias cl="clear"
+alias e="exit"
+
+alias ns="nix-shell --command zsh"
+alias ncg="nix-collect-garbage"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -62,3 +57,9 @@ if type brew &>/dev/null; then
 	autoload -Uz compinit
 	compinit
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi

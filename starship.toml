@@ -1,6 +1,8 @@
 command_timeout = 500
 
 format = """
+$nix_shell\
+$python\
 $directory\
 $fill\
 $cmd_duration\
@@ -23,4 +25,12 @@ format = '[ $duration ]($style)'
 symbol = " "
 
 [directory]
+truncation_length = -1
 truncation_symbol = "…/"
+
+[nix_shell]
+format = "[ $symbol $name ]($style)"
+symbol = "󱄅"
+
+[python]
+format = "[ $virtualenv ]($style)"
