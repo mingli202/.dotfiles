@@ -18,7 +18,7 @@ alias ll="eza -l --group-directories-first -F --icons -h --git"
 alias lt="eza --tree --git-ignore"
 
 alias v="nvim"
-alias nv="neovide --frame none"
+alias nv="neovide --frame buttonless"
 
 alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias vf="nvim \$(fz)"
