@@ -19,6 +19,7 @@ alias lt="eza --tree --git-ignore"
 
 alias v="nvim"
 alias nv="neovide --frame buttonless"
+alias t="tmux"
 
 alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias vf="nvim \$(fz)"
