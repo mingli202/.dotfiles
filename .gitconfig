@@ -1,6 +1,6 @@
 [user]
 	email = vincentmingli@gmail.com
-	name = Nanoscience202
+	name = mingli202
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
