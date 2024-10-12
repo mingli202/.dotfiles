@@ -1,5 +1,3 @@
-bindkey '^y' autosuggest-accept
-
 # custom paths
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
@@ -48,9 +46,13 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 
-# syntax highlighting
+# zsh plugins
 source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 if type brew &>/dev/null; then
 	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
