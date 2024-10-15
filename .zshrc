@@ -36,7 +36,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
 
 # bun completions
 [ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"
@@ -47,18 +46,27 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 
 # zsh plugins
+
+# vim mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+ZVM_INIT_MODE=sourcing
+source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+
+eval "$(fzf --zsh)"
+
+# syntax highlihting
 source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# autosuggestions
 source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# bindkey '^y' autosuggest-accept
 
 if type brew &>/dev/null; then
-	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-	autoload -Uz compinit
-	compinit
+    autoload -Uz compinit
+    compinit
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -66,3 +74,36 @@ if [ -f '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi
+
+# some options
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt BANG_HIST              # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY          # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS       # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS   # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS      # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
+setopt HIST_BEEP              # Beep when accessing nonexistent history.
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

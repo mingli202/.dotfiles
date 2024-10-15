@@ -3,6 +3,7 @@ command_timeout = 500
 format = """
 $nix_shell\
 $python\
+$conda\
 $directory\
 $fill\
 $cmd_duration\
@@ -34,3 +35,6 @@ symbol = "󱄅"
 
 [python]
 format = "[ $virtualenv ]($style)"
+
+[conda]
+format = "[ $symbol$environment ]($style)"
