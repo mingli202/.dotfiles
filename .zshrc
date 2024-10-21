@@ -10,6 +10,11 @@ export PGDATA="/Library/PostgreSQL/16/data"
 # cargo
 source "$HOME/.cargo/env"
 
+# llvm
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
 # alias
 alias ls="eza --group-directories-first -F --icons"
 alias ll="eza -l --group-directories-first -F --icons -h --git"
