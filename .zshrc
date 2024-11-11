@@ -50,8 +50,12 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 
-# zsh plugins
+# qt stuff
+# Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
+export CMAKE_PREFIX_PATH="$CMAKE_PREFIX_PATH:/opt/homebrew/opt/qt@6"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/qt@5/lib/pkgconfig"
 
+# zsh plugins
 # vim mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
 ZVM_INIT_MODE=sourcing
