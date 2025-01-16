@@ -37,6 +37,9 @@ alias e="exit"
 alias ns="nix-shell --command zsh"
 alias ncg="nix-collect-garbage"
 
+# java
+alias ns_java="ns -p zulu maven git"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(starship init zsh)"
@@ -57,6 +60,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/qt@5/lib/pkgconfig"
 
 # flutter
 export PATH="/Users/vincentliu/dev/flutter/bin:$PATH"
+export PATH="/Users/vincentliu/.pub-cache/bin:$PATH"
 
 # zsh plugins
 # vim mode
@@ -88,9 +92,9 @@ if [ -f '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
 # some options
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000000
-SAVEHIST=10000000
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000000
+export SAVEHIST=10000000
 setopt BANG_HIST              # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
@@ -104,6 +108,9 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
