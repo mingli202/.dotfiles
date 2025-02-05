@@ -40,6 +40,9 @@ alias ncg="nix-collect-garbage"
 # java
 alias ns_java="ns -p zulu maven git"
 
+# vhdl
+alias ns_vhdl="ns -p ghdl"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(starship init zsh)"
@@ -55,8 +58,8 @@ export PATH="/opt/homebrew/sbin:$PATH"
 
 # qt stuff
 # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-export CMAKE_PREFIX_PATH="$CMAKE_PREFIX_PATH:/opt/homebrew/opt/qt@5"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/qt@5/lib/pkgconfig"
+# export CMAKE_PREFIX_PATH="$CMAKE_PREFIX_PATH:/opt/homebrew/opt/qt@5"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/qt@5/lib/pkgconfig"
 
 # flutter
 export PATH="/Users/vincentliu/dev/flutter/bin:$PATH"
