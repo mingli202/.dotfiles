@@ -40,8 +40,8 @@ alias ncg="nix-collect-garbage"
 # java
 alias ns_java="ns -p zulu maven git"
 
-# vhdl
-alias ns_vhdl="ns -p ghdl"
+# csharp
+export PATH="$PATH:/Users/vincentliu/.dotnet/tools"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
