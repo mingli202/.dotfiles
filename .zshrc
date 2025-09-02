@@ -1,7 +1,12 @@
+# env
+source ~/.env
+
 # custom paths
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
+
+export ERG_PATH="~/.erg"
 
 #postgresql
 export PATH="/Library/PostgreSQL/16/bin:$PATH"
@@ -37,6 +42,8 @@ alias e="exit"
 alias ns="nix-shell --command zsh"
 alias ncg="nix-collect-garbage"
 
+alias ctetris="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
+
 # java
 alias ns_java="ns -p zulu maven git"
 
@@ -65,6 +72,9 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/Users/vincentliu/dev/flutter/bin:$PATH"
 export PATH="/Users/vincentliu/.pub-cache/bin:$PATH"
 
+# dotnet
+export DOTNET_ROOT="/usr/local/share/dotnet"
+
 # zsh plugins
 # vim mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
@@ -79,7 +89,7 @@ source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # autosuggestions
 source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# bindkey '^y' autosuggest-accept
+bindkey '^y' autosuggest-accept
 
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -115,17 +125,15 @@ setopt HIST_BEEP              # Beep when accessing nonexistent history.
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+eval $(thefuck --alias)
+
+# pnpm
+export PNPM_HOME="/Users/vincentliu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
