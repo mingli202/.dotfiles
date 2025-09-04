@@ -133,7 +133,7 @@ eval $(thefuck --alias)
 # pnpm
 export PNPM_HOME="/Users/vincentliu/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
