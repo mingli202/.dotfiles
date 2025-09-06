@@ -47,7 +47,7 @@ alias ctetris="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
 # java
 alias ns_java="ns -p zulu maven git"
 
-alias mimi="ssh -i .ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
+alias mimi="ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
 
 # csharp
 export PATH="$PATH:/Users/vincentliu/.dotnet/tools"
