@@ -47,7 +47,11 @@ alias ctetris="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
 # java
 alias ns_java="ns -p zulu maven git"
 
-alias mimi="ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
+alias mimi="kitten ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
+
+alias g="git"
+alias gam="git add . && git commit -m"
+alias gp="git push"
 
 # csharp
 export PATH="$PATH:/Users/vincentliu/.dotnet/tools"
