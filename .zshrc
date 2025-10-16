@@ -44,13 +44,17 @@ alias ncg="nix-collect-garbage"
 
 alias ctetris="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
 
+alias pn="pnpm"
+alias px="pnpx"
+
 # java
 alias ns_java="ns -p zulu maven git"
 
 alias mimi="kitten ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
 
 alias g="git"
-alias gam="git add . && git commit -m"
+alias gm="git add . && git commit -m"
+alias gz="git add . && git cz"
 alias gp="git push"
 
 # csharp
@@ -143,3 +147,4 @@ case ":$PATH:" in
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"

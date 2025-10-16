@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
   "collaboration_panel": {
     "dock": "right"
@@ -26,6 +18,7 @@
   "vim_mode": true,
   "ui_font_size": 14,
   "buffer_font_size": 14,
+  "buffer_font_weight": 500,
   "buffer_font_family": "VictorMono Nerd Font",
   "theme": {
     "mode": "system",
@@ -44,13 +37,12 @@
   },
   "use_auto_surround": false,
   "auto_signature_help": null,
-
+  "use_autoclose": false,
   "languages": {
     "Java": {
       "formatter": "language_server"
     }
   },
-
   "experimental.theme_overrides": {
     "renamed.background": "#68948ad3",
     "search.match_background": "#3b4439",
@@ -74,6 +66,260 @@
     "scrollbar.track.background": "#00000000",
     "scrollbar.thumb.background": "#00000000",
     "scrollbar.thumb.border": "#00000000",
-    "editor.active_line.background": "#00000000"
+    "editor.active_line.background": "#00000000",
+    "syntax": {
+      "annotation": {
+        "color": "#d3869b"
+      },
+      "attribute": {
+        "color": "#d3869b"
+      },
+      "boolean": {
+        "color": "#d3869b"
+      },
+      "character": {
+        "color": "#89b482"
+      },
+      "character.special": {
+        "color": "#d8a657"
+      },
+      "comment": {
+        "color": "#928374"
+      },
+      "comment.special": {
+        "color": "#928374"
+      },
+      "conditional": {
+        "color": "#ea6962"
+      },
+      "constant": {
+        "color": "#d4be98"
+      },
+      "constant.builtin": {
+        "color": "#d3869b"
+      },
+      "constant.macro": {
+        "color": "#d3869b"
+      },
+      "constructor": {
+        "color": "#a9b665"
+      },
+      "debug": {
+        "color": "#e78a4e"
+      },
+      "define": {
+        "color": "#d3869b"
+      },
+      "delimiter": {
+        "color": "#d4be98"
+      },
+      "environment": {
+        "color": "#89b482"
+      },
+      "environment.name": {
+        "color": "#d8a657"
+      },
+      "error": {
+        "color": "#ea6962"
+      },
+      "exception": {
+        "color": "#ea6962"
+      },
+      "field": {
+        "color": "#7daea3"
+      },
+      "float": {
+        "color": "#d3869b"
+      },
+      "function": {
+        "color": "#a9b665"
+      },
+      "function.builtin": {
+        "color": "#a9b665"
+      },
+      "function.call": {
+        "color": "#a9b665"
+      },
+      "function.macro": {
+        "color": "#a9b665"
+      },
+      "ignore": {
+        "color": "#928374"
+      },
+      "include": {
+        "color": "#ea6962"
+      },
+      "keyword": {
+        "color": "#ea6962"
+      },
+      "keyword.conditional": {
+        "color": "#ea6962"
+      },
+      "keyword.debug": {
+        "color": "#e78a4e"
+      },
+      "keyword.define": {
+        "color": "#d3869b"
+      },
+      "keyword.directive": {
+        "color": "#d3869b"
+      },
+      "keyword.exception": {
+        "color": "#ea6962"
+      },
+      "keyword.function": {
+        "color": "#a9b665"
+      },
+      "keyword.include": {
+        "color": "#d3869b"
+      },
+      "keyword.operator": {
+        "color": "#ea6962"
+      },
+      "keyword.repeat": {
+        "color": "#ea6962"
+      },
+      "keyword.return": {
+        "color": "#ea6962"
+      },
+      "keyword.storage": {
+        "color": "#e78a4e"
+      },
+      "label": {
+        "color": "#e78a4e"
+      },
+      "literal": {
+        "color": "#a9b665"
+      },
+      "math": {
+        "color": "#7daea3"
+      },
+      "method": {
+        "color": "#a9b665"
+      },
+      "method.call": {
+        "color": "#a9b665"
+      },
+      "namespace": {
+        "color": "#d8a657"
+      },
+      "none": {
+        "color": "#d4be98"
+      },
+      "number": {
+        "color": "#d3869b"
+      },
+      "operator": {
+        "color": "#e78a4e"
+      },
+      "parameter": {
+        "color": "#d4be98"
+      },
+      "parameter.reference": {
+        "color": "#d4be98"
+      },
+      "precondit": {
+        "color": "#d3869b"
+      },
+      "preproc": {
+        "color": "#d3869b"
+      },
+      "property": {
+        "color": "#7daea3"
+      },
+      "punctuation.bracket": {
+        "color": "#d4be98"
+      },
+      "punctuation.delimiter": {
+        "color": "#928374"
+      },
+      "punctuation.special": {
+        "color": "#7daea3"
+      },
+      "repeat": {
+        "color": "#ea6962"
+      },
+      "statement": {
+        "color": "#ea6962"
+      },
+      "storage.class": {
+        "color": "#e78a4e"
+      },
+      "storage.class.lifetime": {
+        "color": "#e78a4e"
+      },
+      "storageclass": {
+        "color": "#e78a4e"
+      },
+      "storageclass.lifetime": {
+        "color": "#e78a4e"
+      },
+      "strike": {
+        "color": "#928374"
+      },
+      "string": {
+        "color": "#89b482"
+      },
+      "string.escape": {
+        "color": "#a9b665"
+      },
+      "string.regex": {
+        "color": "#a9b665"
+      },
+      "string.special": {
+        "color": "#d8a657"
+      },
+      "structure": {
+        "color": "#e78a4e"
+      },
+      "symbol": {
+        "color": "#d4be98"
+      },
+      "tag": {
+        "color": "#e78a4e"
+      },
+      "tag.attribute": {
+        "color": "#a9b665"
+      },
+      "tag.delimiter": {
+        "color": "#a9b665"
+      },
+      "text": {
+        "color": "#a9b665"
+      },
+      "text.reference": {
+        "color": "#89b482"
+      },
+      "title": {
+        "color": "#e78a4e"
+      },
+      "todo": {
+        "color": "#7daea3"
+      },
+      "type": {
+        "color": "#d8a657"
+      },
+      "type.builtin": {
+        "color": "#d8a657"
+      },
+      "type.definition": {
+        "color": "#d8a657"
+      },
+      "type.qualifier": {
+        "color": "#e78a4e"
+      },
+      "typedef": {
+        "color": "#ea6962"
+      },
+      "variable": {
+        "color": "#d4be98"
+      },
+      "variable.builtin": {
+        "color": "#d3869b"
+      },
+      "variable.special": {
+        "color": "#d3869b"
+      }
+    }
   }
 }
