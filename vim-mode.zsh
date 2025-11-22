@@ -1,6 +1,7 @@
 # vi mode
 CURSOR_BLOCK='\e[2 q'
 CURSOR_LINE='\e[6 q'
+KEYTIMEOUT=10
 export VI_MODE_SET_CURSOR=true
 
 bindkey -v
@@ -59,7 +60,7 @@ function zle-line-init {
 # THIS IS THE CRITICAL PART FOR TMUX
 function zle-line-pre-redraw {
 	# Only run if inside TMUX to save cycles, though it's safe otherwise.
-	if [[ -n $TMUX ]]; then
+	if [[ -n $TMUX && $PENDING -eq 0 ]]; then
 		_fix_cursor_shape
 	fi
 }

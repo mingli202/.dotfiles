@@ -95,11 +95,11 @@ eval "$(fzf --zsh)"
 
 # zsh plugins
 # vim mode
-# ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
-# ZVM_INIT_MODE=sourcing
-# source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+ZVM_INIT_MODE=sourcing
+source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
-source ~/.dotfiles/vim-mode.zsh
+# source ~/.dotfiles/vim-mode.zsh
 
 # syntax highlihting
 source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
