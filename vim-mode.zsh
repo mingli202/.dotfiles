@@ -10,57 +10,65 @@ bindkey -M viins '^N' down-history
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^W' backward-kill-word
 
-function _set_cursor_shape() {
-	local shape="$1"
-	if [[ -n "$TMUX" ]]; then
-		# tmux requires special wrapping of escape sequences
-		echo -ne "\ePtmux;\e${shape}\e\\"
+# Lightweight Vi-Mode Cursor Shape Logic
+# Extracted/Adapted from zsh-vi-mode
+
+# 1. Define Cursor Shapes
+# \e[2 q  -> Block (Normal Mode)
+# \e[6 q  -> Beam/Line (Insert Mode)
+# \e[0 q  -> User Default (On finish)
+_fix_cursor_shape() {
+	local cursor_shape
+
+	# Check the current keymap to determine mode
+	if [[ ${KEYMAP} == 'vicmd' ]]; then
+		# Normal Mode -> Block
+		cursor_shape='\e[2 q'
+		MODE_INDICATOR="❮N❯"
 	else
-		echo -ne "${shape}"
+		# Insert/Main Mode -> Beam (Line)
+		cursor_shape='\e[6 q'
+		MODE_INDICATOR="❮I❯"
+	fi
+
+	# Output the escape sequence to change the cursor
+	print -n -- "$cursor_shape"
+	zle reset-prompt
+}
+
+# 2. Ensure cursor is reset when the line finishes (executing a command)
+_reset_cursor_shape() {
+	print -n -- '\e[0 q'
+}
+
+# 3. The Hook Functions
+# Called when the keymap changes (e.g. typing <ESC>)
+function zle-keymap-select {
+	_fix_cursor_shape
+	zle redisplay
+}
+
+# Called when the line editor initializes (new prompt)
+function zle-line-init {
+	# Default to insert mode behavior on init
+	zle -K viins
+	_fix_cursor_shape
+}
+
+# Called just before Zsh redraws the line
+# THIS IS THE CRITICAL PART FOR TMUX
+function zle-line-pre-redraw {
+	# Only run if inside TMUX to save cycles, though it's safe otherwise.
+	if [[ -n $TMUX ]]; then
+		_fix_cursor_shape
 	fi
 }
 
-# Change cursor shape when vi mode changes
-function zle-keymap-select() {
-	case $KEYMAP in
-	vicmd)
-		# Normal mode: block cursor
-		_set_cursor_shape "$CURSOR_BLOCK"
-		MODE_INDICATOR="❮N❯"
-		;;
-	viins | main)
-		# Insert mode: line/bar cursor
-		_set_cursor_shape "$CURSOR_LINE"
-		MODE_INDICATOR="❮I❯"
-		;;
-	esac
-	zle && zle reset-prompt
-
-}
-
-function zle-line-init() {
-	# Start in insert mode with line cursor
-	zle -K viins
-	_set_cursor_shape "$CURSOR_LINE"
-}
-
-function zle-line-finish() {
-	_set_cursor_shape "$CURSOR_BLOCK"
-}
-
-# Reset cursor before each new prompt
-function precmd() {
-	# Force cursor refresh based on current mode
-	_set_cursor_shape "$CURSOR_LINE"
-}
-
-# Create zle widgets
+# 4. Register the Hooks
 zle -N zle-keymap-select
 zle -N zle-line-init
-zle -N zle-line-finish
+zle -N zle-line-pre-redraw
+zle -N zle-line-finish _reset_cursor_shape
 
-bindkey '^[[I' zle-keymap-select
-bindkey -M vicmd '^[[I' zle-keymap-select
-bindkey -M viins '^[[I' zle-keymap-select
-
-_set_cursor_shape "$CURSOR_LINE"
+# 5. Enable Vi Mode (if not already done elsewhere in your config)
+bindkey -v

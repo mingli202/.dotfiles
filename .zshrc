@@ -99,6 +99,8 @@ eval "$(fzf --zsh)"
 # ZVM_INIT_MODE=sourcing
 # source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
+source ~/.dotfiles/vim-mode.zsh
+
 # syntax highlihting
 source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
@@ -139,5 +141,3 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
-
-source ~/.dotfiles/vim-mode.zsh
