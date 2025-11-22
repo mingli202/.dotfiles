@@ -57,15 +57,6 @@ source "$HOME/.cargo/env"
 # csharp
 export PATH="$PATH:/Users/vincentliu/.dotnet/tools"
 
-# evals
-eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
-eval "$(thefuck --alias)"
-
-# bun completions
-[ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -77,6 +68,10 @@ export PATH="/opt/homebrew/sbin:$PATH"
 
 # dotnet
 export DOTNET_ROOT="/usr/local/share/dotnet"
+
+# other
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
@@ -92,11 +87,17 @@ esac
 # java
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
+# evals
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
+# eval "$(thefuck --alias)"
+
 # zsh plugins
 # vim mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
-ZVM_INIT_MODE=sourcing
-source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+# ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+# ZVM_INIT_MODE=sourcing
+# source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # syntax highlihting
 source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -139,5 +140,4 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+source ~/.dotfiles/vim-mode.zsh

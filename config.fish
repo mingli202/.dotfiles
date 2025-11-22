@@ -39,3 +39,4 @@ fish_add_path "/opt/homebrew/bin"
 starship init fish | source
 zoxide init --cmd cd fish | source
 fzf --fish | source
+thefuck --alias | source
