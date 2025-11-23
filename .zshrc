@@ -87,12 +87,6 @@ esac
 # java
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
-# evals
-eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
-# eval "$(thefuck --alias)"
-
 # zsh plugins
 # vim mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
@@ -123,6 +117,12 @@ bindkey '^y' autosuggest-accept
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi
+#
+# evals
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
+# eval "$(thefuck --alias)"
 
 # some options
 export HISTFILE="$HOME/.zsh_history"
