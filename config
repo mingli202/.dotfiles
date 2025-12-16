@@ -1,0 +1,5 @@
+font-family = "VictorMono Nerd Font Mono"
+theme = "/Users/vincentliu/dev/iTerm2-Color-Schemes/ghostty/Gruvbox Dark"
+background-opacity = 0.9
+background-blur = true
+window-decoration = none
