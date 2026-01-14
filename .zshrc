@@ -1,4 +1,5 @@
 # alias
+alias ..="cd .."
 alias ls="eza --group-directories-first -F --icons"
 alias ll="eza -l --group-directories-first -F --icons -h --git"
 alias lt="eza --tree --git-ignore"
@@ -41,6 +42,9 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
 
 export ERG_PATH="~/.erg"
+
+# GO
+export PATH="$HOME/go/bin/:$PATH"
 
 #postgresql
 export PATH="/Library/PostgreSQL/16/bin:$PATH"
@@ -141,3 +145,6 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
+
+# bun completions
+[ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"

@@ -1,0 +1,149 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+shift+p",
+    "command": "livePreview.start.internalPreview.atFile"
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "livePreview.start.externalPreview.atFile"
+  },
+
+  // terminal
+  {
+    "key": "cmd+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+tab",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+shift+tab",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+
+  // vim
+  {
+    "key": "shift+backspace",
+    "command": "extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "tab",
+    "command": "-acceptSelectedSuggestion",
+    "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "q",
+    "command": "closeBreakpointWidget",
+    "when": "breakpointWidgetVisible && textInputFocus && vim.mode == 'Normal' && vim.active"
+  },
+  {
+    "key": "q",
+    "command": "editor.debug.action.closeExceptionWidget",
+    "when": "exceptionWidgetVisible && vim.mode == 'Normal' && vim.active"
+  },
+  {
+    "key": "q",
+    "command": "closeMarkersNavigation",
+    "when": "editorFocus && markersNavigationVisible && vim.mode == 'Normal' && vim.active"
+  },
+  {
+    "key": "q",
+    "command": "editor.closeCallHierarchy",
+    "when": "callHierarchyVisible && !config.editor.stablePeek"
+  },
+  {
+    "key": "q",
+    "command": "editor.closeTypeHierarchy",
+    "when": "typeHierarchyVisible && !config.editor.stablePeek"
+  },
+  {
+    "key": "q",
+    "command": "closeReferenceSearch",
+    "when": "inReferenceSearchEditor || referenceSearchVisible && !config.editor.stablePeek"
+  },
+
+  // explorer
+  {
+    "key": "space",
+    "command": "-filesExplorer.openFilePreserveFocus",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "filesExplorer.openFilePreserveFocus",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "q",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+
+  // search
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "searchViewletFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "searchViewletFocus && inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "search.action.openInEditor",
+    "when": "searchViewletFocus && inputFocus"
+  }
+]

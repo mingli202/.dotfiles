@@ -2,7 +2,19 @@ font-size = 14
 theme = "/Users/vincentliu/dev/iTerm2-Color-Schemes/ghostty/Gruvbox Dark"
 background-opacity = 0.9
 background-blur = true
+
 macos-titlebar-style = hidden
+
 window-padding-balance = true
 window-padding-x = 5
 window-padding-y = 5
+
+quit-after-last-window-closed = true
+mouse-hide-while-typing = true
+
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
+
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
