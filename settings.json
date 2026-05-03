@@ -1,4 +1,9 @@
 {
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "collaboration_panel": {
     "dock": "right",
   },
