@@ -1,4 +1,5 @@
 font-size = 14
+adjust-cell-height = 3
 theme = "/Users/vincentliu/dev/iTerm2-Color-Schemes/ghostty/Gruvbox Dark"
 background-opacity = 0.9
 background-blur = true
