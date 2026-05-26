@@ -46,7 +46,7 @@ function y() {
 }
 
 # env
-source ~/.env
+# source ~/.env
 
 # custom paths
 export PATH="/opt/homebrew/bin:$PATH"
