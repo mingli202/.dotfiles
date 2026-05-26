@@ -21,7 +21,7 @@ alias e="exit"
 alias ns="nix-shell --command zsh"
 alias ncg="nix-collect-garbage"
 
-alias ctetris="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
+alias ct="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
 
 alias pn="pnpm"
 alias px="pnpx"
@@ -32,6 +32,9 @@ alias g="git"
 alias gm="git add . && git commit -m"
 alias gz="git add . && git cz"
 alias gp="git push"
+
+alias ttt="typing-test-tui"
+alias tt="typing_test"
 
 # yazi
 function y() {
