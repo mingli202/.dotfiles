@@ -1,8 +1,10 @@
 {
+  "proxy": "",
+  "formatter": "auto",
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "collaboration_panel": {
     "dock": "right",
@@ -21,12 +23,8 @@
   "ui_font_size": 14,
   "buffer_font_size": 14,
   "buffer_font_weight": 500,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "theme": {
-    "mode": "system",
-    "light": "Tokyo Night Light",
-    "dark": "Gruvbox Material",
-  },
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font",
+  "theme": "Gruvbox Material",
   "autosave": "off",
   "relative_line_numbers": "enabled",
   "terminal": {
@@ -39,12 +37,30 @@
   },
   "use_auto_surround": false,
   "auto_signature_help": null,
-  "use_autoclose": false,
+  "use_autoclose": true,
+  "format_on_save": "on",
   "languages": {
     "Java": {
       "formatter": "language_server",
     },
+    "TypeScript": {
+      "language_servers": [
+        "tsgo",
+        "!vtsls",
+        "!typescript-language-server",
+        "...",
+      ],
+    },
+    "TSX": {
+      "language_servers": [
+        "tsgo",
+        "!vtsls",
+        "!typescript-language-server",
+        "...",
+      ],
+    },
   },
+  "language_servers": ["!eslint", "..."],
   "experimental.theme_overrides": {
     "renamed.background": "#68948ad3",
     "search.match_background": "#3b4439",
