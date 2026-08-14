@@ -3,6 +3,7 @@ alias ..="cd .."
 alias ls="eza --group-directories-first -F --icons"
 alias ll="eza -l --group-directories-first -F --icons -h --git"
 alias lt="eza --tree --git-ignore"
+alias l="ls"
 
 alias v="nvim"
 alias nv="neovide --frame buttonless"
@@ -35,6 +36,9 @@ alias gp="git push"
 
 alias ttt="typing-test-tui"
 alias tt="typing_test"
+
+alias cc="codex --yolo"
+alias oc="opencode"
 
 # yazi
 function y() {
