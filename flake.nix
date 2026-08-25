@@ -40,6 +40,7 @@
                   zoxide
                   fd
                   eza
+                  fzf
                   starship
                   neovim
 
@@ -48,6 +49,10 @@
                   bun
 
                   # languages
+                  rustup
+                  go
+                  nodejs-slim
+                  python314
 
                   # other libs
                   pkg-config
