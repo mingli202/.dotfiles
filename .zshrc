@@ -59,15 +59,9 @@ export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
 
 export ERG_PATH="~/.erg"
 
-# GO
-export PATH="$HOME/go/bin/:$PATH"
-
 #postgresql
 export PATH="/Library/PostgreSQL/16/bin:$PATH"
 export PGDATA="/Library/PostgreSQL/16/data"
-
-# cargo
-source "$HOME/.cargo/env"
 
 # llvm
 # export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
@@ -105,7 +99,7 @@ esac
 # pnpm end
 
 # java
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+# export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
 # zsh plugins
 # vim mode
@@ -139,9 +133,16 @@ bindkey '^y' autosuggest-accept
 # if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi
 #
 # evals
-eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
+
+if command -v starship >/dev/null 2>1; then
+	eval "$(starship init zsh)"
+fi
+if command -v zoxide >/dev/null 2>1; then
+	eval "$(zoxide init --cmd cd zsh)"
+fi
+if command -v fzf >/dev/null 2>1; then
+	eval "$(fzf --zsh)"
+fi
 # eval "$(thefuck --alias)"
 
 # some options
