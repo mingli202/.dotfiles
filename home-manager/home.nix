@@ -37,39 +37,56 @@
       #   echo "Hello, ${config.home.username}!"
       # '')
 
-      hello
-
       # general tools
+      gh
       git
+      htop
       tmux
+      tokei
+      pkg-config
+      unzip
 
-      ripgrep
-      zoxide
-      fd
+      # better clis
+      bat
+      btop
       eza
+      fd
       fzf
+      lazygit
+      ripgrep
       starship
+      yazi
+      zoxide
+
+      # nvim
       neovim
       tree-sitter
 
       # package managers
-      uv
       bun
       pnpm
+      uv
 
       # languages
-      rustup
       go
       nodejs-slim
       nodejs-slim.npm
       python314
+      rustup
 
-      # other libs
-      pkg-config
-      unzip
-
-      # formatters
+      # lsp, lint, formatters
+      biome
+      ccls
+      jq
       nixfmt
+
+      # fun
+      fortune
+      hello
+      sl
+      cbonsai
+      cmatrix
+      cowsay
     ]
     ++ additionalPkgs pkgs;
 
@@ -105,7 +122,7 @@
   #  /etc/profiles/per-user/vincentliu/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
