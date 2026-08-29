@@ -1,0 +1,30 @@
+[
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space X": "editor::DeleteLine",
+      "space p": "editor::Paste",
+      "space i h": "editor::ToggleInlayHints",
+      "space f f": "file_finder::Toggle",
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-d z z"],
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-u z z"]
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space x": "editor::Backspace",
+      "space X": "editor::DeleteLine",
+      "J": "editor::MoveLineDown",
+      "K": "editor::MoveLineUp",
+      "ctrl-j": "editor::DuplicateLineDown",
+      "ctrl-k": "editor::DuplicateLineUp"
+    }
+  }
+]
