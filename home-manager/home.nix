@@ -1,5 +1,13 @@
-{ additionalPkgs, pkgs, ... }:
-
+{
+  config,
+  additionalPkgs,
+  pkgs,
+  ...
+}:
+let
+  dotfiles = "${config.home.homeDirectory}/.dotfiles";
+  mkSymlink = filepath: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${filepath}";
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -108,6 +116,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".zshrc".source = mkSymlink ".zshrc";
+    ".gitconfig".source = mkSymlink ".gitconfig";
   };
 
   # Home Manager can also manage your environment variables through
