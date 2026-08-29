@@ -118,6 +118,11 @@ in
     # '';
     ".zshrc".source = mkSymlink ".zshrc";
     ".gitconfig".source = mkSymlink ".gitconfig";
+    ".tmux.conf".source = mkSymlink ".tmux.conf";
+    ".wezterm.lua".source = mkSymlink ".wezterm.lua";
+    ".config/ghostty/config".source = mkSymlink "config";
+    ".config/kitty/kitty.conf".source = mkSymlink "kitty.conf";
+    ".config/starship.toml".source = mkSymlink "starship.toml";
   };
 
   # Home Manager can also manage your environment variables through
