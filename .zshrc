@@ -1,44 +1,7 @@
 # alias
 alias ..="cd .."
-alias ls="eza --group-directories-first -F --icons auto"
-alias ll="eza -l --group-directories-first -F --icons -h --git"
-alias lt="eza --tree --git-ignore"
-alias l="ls"
-
-alias v="nvim"
-alias nv="neovide --frame buttonless"
-alias t="tmux"
-
-alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-alias vf="nvim \$(fz)"
-alias nvf="neovide --frame none \$(fz)"
 alias cdf="cd \$(fd -H -t d | fzf)"
-
-alias lg="lazygit"
-
-alias cl="clear"
 alias e="exit"
-
-alias ns="nix-shell --command zsh"
-alias ncg="nix-collect-garbage"
-
-alias ct="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
-
-alias pn="pnpm"
-alias px="pnpx"
-
-alias mimi="kitten ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
-
-alias g="git"
-alias gm="git add . && git commit -m"
-alias gz="git add . && git cz"
-alias gp="git push"
-
-alias ttt="typing-test-tui"
-alias tt="typing_test"
-
-alias cc="codex --yolo"
-alias oc="opencode"
 
 # yazi
 function y() {
@@ -63,43 +26,18 @@ export ERG_PATH="~/.erg"
 export PATH="/Library/PostgreSQL/16/bin:$PATH"
 export PGDATA="/Library/PostgreSQL/16/data"
 
-# llvm
-# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
 # csharp
 export PATH="$PATH:/Users/vincentliu/.dotnet/tools"
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-
-# flutter
-# export PATH="/Users/vincentliu/dev/flutter/bin:$PATH"
-# export PATH="/Users/vincentliu/.pub-cache/bin:$PATH"
 
 # dotnet
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # other
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
-
-# pnpm
-export PNPM_HOME="/Users/vincentliu/Library/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 # java
-# export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
 # zsh plugins
 # vim mode
@@ -107,33 +45,14 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
 ZVM_INIT_MODE=sourcing
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
-# source ~/.dotfiles/vim-mode.zsh
-
 # syntax highlihting
-source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # autosuggestions
-source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey '^y' autosuggest-accept
 
-# completions
-# if type brew &>/dev/null; then
-#     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-#
-#     autoload -Uz compinit
-#     compinit
-# fi
-
-# google cloud sdk
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vincentliu/dev/google-cloud-sdk/completion.zsh.inc'; fi
-#
 # evals
-
 if command -v starship >/dev/null 2>1; then
 	eval "$(starship init zsh)"
 fi
@@ -162,6 +81,3 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
-
-# bun completions
-[ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"

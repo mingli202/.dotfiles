@@ -7,6 +7,8 @@
 let
   dotfiles = "${config.home.homeDirectory}/.dotfiles";
   mkSymlink = filepath: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${filepath}";
+
+  mkBin = name: text: pkgs.writeShellScriptBin name text;
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -44,8 +46,111 @@ in
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
-      (pkgs.writeShellScriptBin "hm" "home-manager")
-      (pkgs.writeShellScriptBin "hms" "home-manager switch -b backup")
+      (mkBin "hm" ''exec home-manager "$@"'')
+      (mkBin "hms" "home-manager switch -b backup")
+
+      (mkBin "ls" ''
+        exec eza --group-directories-first -F --icons auto "$@"
+      '')
+
+      (mkBin "ll" ''
+        exec eza -l --group-directories-first -F --icons -h --git "$@"
+      '')
+
+      (mkBin "lt" ''
+        exec eza --tree --git-ignore "$@"
+      '')
+
+      (mkBin "l" ''
+        exec ls "$@"
+      '')
+
+      (mkBin "v" ''
+        exec nvim "$@"
+      '')
+
+      (mkBin "nv" ''
+        exec neovide --frame buttonless "$@"
+      '')
+
+      (mkBin "t" ''
+        exec tmux "$@"
+      '')
+
+      (mkBin "fz" ''
+        exec fzf \
+          --preview 'bat --color=always --style=numbers --line-range=:500 {}' \
+          "$@"
+      '')
+
+      (mkBin "vf" ''
+        exec nvim "$(fz)"
+      '')
+
+      (mkBin "nvf" ''
+        exec neovide --frame none "$(fz)"
+      '')
+
+      (mkBin "lg" ''
+        exec lazygit "$@"
+      '')
+
+      (mkBin "cl" ''
+        exec clear "$@"
+      '')
+
+      (mkBin "ns" ''
+        exec nix-shell --command zsh "$@"
+      '')
+
+      (mkBin "ncg" ''
+        exec nix-collect-garbage "$@"
+      '')
+
+      (mkBin "ct" ''
+        export TERM=screen-256color
+        exec "$HOME/dev/Codes/C/ncurses/tetris/bin/tetris" "$@"
+      '')
+
+      (mkBin "pn" ''
+        exec pnpm "$@"
+      '')
+
+      (mkBin "px" ''
+        exec pnpx "$@"
+      '')
+
+      (mkBin "g" ''
+        exec git "$@"
+      '')
+
+      (mkBin "gm" ''
+        git add . && git commit -m "$@"
+      '')
+
+      (mkBin "gz" ''
+        git add . && git cz "$@"
+      '')
+
+      (mkBin "gp" ''
+        exec git push "$@"
+      '')
+
+      (mkBin "ttt" ''
+        exec typing-test-tui "$@"
+      '')
+
+      (mkBin "tt" ''
+        exec typing_test "$@"
+      '')
+
+      (mkBin "cc" ''
+        exec codex --yolo "$@"
+      '')
+
+      (mkBin "oc" ''
+        exec opencode "$@"
+      '')
 
       # general tools
       cmake
@@ -122,7 +227,7 @@ in
     ".gitconfig".source = mkSymlink ".gitconfig";
     ".tmux.conf".source = mkSymlink ".tmux.conf";
     ".wezterm.lua".source = mkSymlink ".wezterm.lua";
-    ".config/ghostty/config".source = mkSymlink "config";
+    ".config/ghostty/config".source = mkSymlink "ghostty/config";
     ".config/kitty/kitty.conf".source = mkSymlink "kitty.conf";
     ".config/starship.toml".source = mkSymlink "starship.toml";
 
@@ -148,8 +253,16 @@ in
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # programs.zsh = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #   autosuggestion.enable = true;
+  #   syntaxHighlighting.enable = true;
+  # };
 }
