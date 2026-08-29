@@ -44,6 +44,8 @@ in
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
+      (pkgs.writeShellScriptBin "hm" "home-manager")
+      (pkgs.writeShellScriptBin "hms" "home-manager switch -b backup")
 
       # general tools
       cmake
