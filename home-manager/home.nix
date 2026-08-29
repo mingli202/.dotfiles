@@ -49,7 +49,6 @@
       tokei
       pkg-config
       unzip
-      vercel
 
       # better clis
       bat
