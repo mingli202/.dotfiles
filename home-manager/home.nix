@@ -38,13 +38,18 @@
       # '')
 
       # general tools
+      cmake
+      ffmpeg
+      imagemagick
       gh
       git
       htop
+      rsync
       tmux
       tokei
       pkg-config
       unzip
+      vercel
 
       # better clis
       bat
@@ -81,12 +86,13 @@
       nixfmt
 
       # fun
-      fortune
-      hello
-      sl
       cbonsai
       cmatrix
       cowsay
+      fastfetch
+      fortune
+      hello
+      sl
     ]
     ++ additionalPkgs pkgs;
 
