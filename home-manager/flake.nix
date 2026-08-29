@@ -40,8 +40,15 @@
     {
       homeConfigurations = {
         "vincentliu" = mkHome { system = "aarch64-darwin"; };
-        "vincentliu@linux" = mkHome {
+        "vincentliu@x86_64-linux" = mkHome {
           system = "x86_64-linux";
+          additionalPkgs =
+            pkgs: with pkgs; [
+              zsh
+            ];
+        };
+        "vincentliu@aarch64-linux" = mkHome {
+          system = "aarch64-linux";
           additionalPkgs =
             pkgs: with pkgs; [
               zsh
