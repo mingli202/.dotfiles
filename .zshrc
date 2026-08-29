@@ -1,6 +1,6 @@
 # alias
 alias ..="cd .."
-alias ls="eza --group-directories-first -F --icons"
+alias ls="eza --group-directories-first -F --icons auto"
 alias ll="eza -l --group-directories-first -F --icons -h --git"
 alias lt="eza --tree --git-ignore"
 alias l="ls"
