@@ -49,109 +49,6 @@ in
       (mkBin "hm" ''exec home-manager "$@"'')
       (mkBin "hms" "home-manager switch -b backup")
 
-      (mkBin "ls" ''
-        exec eza --group-directories-first -F --icons auto "$@"
-      '')
-
-      (mkBin "ll" ''
-        exec eza -l --group-directories-first -F --icons -h --git "$@"
-      '')
-
-      (mkBin "lt" ''
-        exec eza --tree --git-ignore "$@"
-      '')
-
-      (mkBin "l" ''
-        exec ls "$@"
-      '')
-
-      (mkBin "v" ''
-        exec nvim "$@"
-      '')
-
-      (mkBin "nv" ''
-        exec neovide --frame buttonless "$@"
-      '')
-
-      (mkBin "t" ''
-        exec tmux "$@"
-      '')
-
-      (mkBin "fz" ''
-        exec fzf \
-          --preview 'bat --color=always --style=numbers --line-range=:500 {}' \
-          "$@"
-      '')
-
-      (mkBin "vf" ''
-        exec nvim "$(fz)"
-      '')
-
-      (mkBin "nvf" ''
-        exec neovide --frame none "$(fz)"
-      '')
-
-      (mkBin "lg" ''
-        exec lazygit "$@"
-      '')
-
-      (mkBin "cl" ''
-        exec clear "$@"
-      '')
-
-      (mkBin "ns" ''
-        exec nix-shell --command zsh "$@"
-      '')
-
-      (mkBin "ncg" ''
-        exec nix-collect-garbage "$@"
-      '')
-
-      (mkBin "ct" ''
-        export TERM=screen-256color
-        exec "$HOME/dev/Codes/C/ncurses/tetris/bin/tetris" "$@"
-      '')
-
-      (mkBin "pn" ''
-        exec pnpm "$@"
-      '')
-
-      (mkBin "px" ''
-        exec pnpx "$@"
-      '')
-
-      (mkBin "g" ''
-        exec git "$@"
-      '')
-
-      (mkBin "gm" ''
-        git add . && git commit -m "$@"
-      '')
-
-      (mkBin "gz" ''
-        git add . && git cz "$@"
-      '')
-
-      (mkBin "gp" ''
-        exec git push "$@"
-      '')
-
-      (mkBin "ttt" ''
-        exec typing-test-tui "$@"
-      '')
-
-      (mkBin "tt" ''
-        exec typing_test "$@"
-      '')
-
-      (mkBin "cc" ''
-        exec codex --yolo "$@"
-      '')
-
-      (mkBin "oc" ''
-        exec opencode "$@"
-      '')
-
       # general tools
       cmake
       ffmpeg
@@ -164,6 +61,8 @@ in
       tokei
       pkg-config
       unzip
+      zsh-autosuggestions
+      zsh-syntax-highlighting
 
       # better clis
       bat
@@ -258,11 +157,4 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # programs.zsh = {
-  #   enable = true;
-  #   enableCompletion = true;
-  #   autosuggestion.enable = true;
-  #   syntaxHighlighting.enable = true;
-  # };
 }

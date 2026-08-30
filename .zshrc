@@ -1,7 +1,44 @@
 # alias
 alias ..="cd .."
+alias ls="eza --group-directories-first -F --icons auto"
+alias ll="eza -l --group-directories-first -F --icons -h --git"
+alias lt="eza --tree --git-ignore"
+alias l="ls"
+
+alias v="nvim"
+alias nv="neovide --frame buttonless"
+alias t="tmux"
+
+alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias vf="nvim \$(fz)"
+alias nvf="neovide --frame none \$(fz)"
 alias cdf="cd \$(fd -H -t d | fzf)"
+
+alias lg="lazygit"
+
+alias cl="clear"
 alias e="exit"
+
+alias ns="nix-shell --command zsh"
+alias ncg="nix-collect-garbage"
+
+alias ct="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
+
+alias pn="pnpm"
+alias px="pnpx"
+
+alias mimi="kitten ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
+
+alias g="git"
+alias gm="git add . && git commit -m"
+alias gz="git add . && git cz"
+alias gp="git push"
+
+alias ttt="typing-test-tui"
+alias tt="typing_test"
+
+alias cc="codex --yolo"
+alias oc="opencode"
 
 # yazi
 function y() {
@@ -35,22 +72,11 @@ export PATH="/opt/homebrew/sbin:$PATH"
 # dotnet
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
-# other
-
-# java
-
 # zsh plugins
 # vim mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
 ZVM_INIT_MODE=sourcing
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-
-# syntax highlihting
-
-# autosuggestions
-# source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-bindkey '^y' autosuggest-accept
 
 # evals
 if command -v starship >/dev/null 2>1; then
@@ -81,3 +107,15 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
+
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
+
+# autosuggestions
+source "$HOME/.local/state/nix/profiles/profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+bindkey '^y' autosuggest-accept
+
+# syntax highlihting
+source "$HOME/.local/state/nix/profiles/profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
