@@ -78,6 +78,10 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
 ZVM_INIT_MODE=sourcing
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
+
 # evals
 if command -v starship >/dev/null 2>1; then
 	eval "$(starship init zsh)"
@@ -107,10 +111,6 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
-
-if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
-	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-fi
 
 # autosuggestions
 source "$HOME/.local/state/nix/profiles/profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
