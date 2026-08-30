@@ -73,18 +73,6 @@ setopt HIST_BEEP              # Beep when accessing nonexistent history.
 # env
 # source ~/.env
 
-# evals
-if command -v starship >/dev/null 2>&1; then
-	eval "$(starship init zsh)"
-fi
-if command -v zoxide >/dev/null 2>&1; then
-	eval "$(zoxide init --cmd cd zsh)"
-fi
-if command -v fzf >/dev/null 2>&1; then
-	eval "$(fzf --zsh)"
-fi
-# eval "$(thefuck --alias)"
-#
 # zsh plugins
 # vim mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
@@ -98,6 +86,17 @@ bindkey '^y' autosuggest-accept
 
 # syntax highlihting
 source "$HOME/.local/state/nix/profiles/profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# evals
+if command -v starship >/dev/null 2>&1; then
+	eval "$(starship init zsh)"
+fi
+if command -v zoxide >/dev/null 2>&1; then
+	eval "$(zoxide init --cmd cd zsh)"
+fi
+if command -v fzf >/dev/null 2>&1; then
+	eval "$(fzf --zsh)"
+fi
 
 # custom paths
 export PATH="$HOME/.cargo/bin:$PATH"
