@@ -11,3 +11,7 @@ home-manager switch --flake ./home-manager/
 if [[ ! -d "$HOME/.config/nvim" ]]; then
 	git clone https://github.com/mingli202/nvim_config.git ~/.config/nvim
 fi
+
+if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
