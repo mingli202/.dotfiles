@@ -73,20 +73,6 @@ setopt HIST_BEEP              # Beep when accessing nonexistent history.
 # env
 # source ~/.env
 
-# custom paths
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
-
-# zsh plugins
-# vim mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
-ZVM_INIT_MODE=sourcing
-source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-
-if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
-	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-fi
-
 # evals
 if command -v starship >/dev/null 2>&1; then
 	eval "$(starship init zsh)"
@@ -98,6 +84,12 @@ if command -v fzf >/dev/null 2>&1; then
 	eval "$(fzf --zsh)"
 fi
 # eval "$(thefuck --alias)"
+#
+# zsh plugins
+# vim mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+ZVM_INIT_MODE=sourcing
+source "$HOME/.local/state/nix/profiles/profile/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # autosuggestions
 source "$HOME/.local/state/nix/profiles/profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -106,3 +98,10 @@ bindkey '^y' autosuggest-accept
 
 # syntax highlihting
 source "$HOME/.local/state/nix/profiles/profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# custom paths
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
+export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+
+typeset -U path PATH

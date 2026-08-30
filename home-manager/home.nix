@@ -61,8 +61,10 @@ in
       tokei
       pkg-config
       unzip
+
       zsh-autosuggestions
       zsh-syntax-highlighting
+      zsh-vi-mode
 
       # better clis
       bat
