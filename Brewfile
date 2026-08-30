@@ -1,148 +1,98 @@
-tap "discoteq/discoteq"
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "jesseduffield/lazygit"
-tap "osrf/simulation"
+tap "anomalyco/tap"
+tap "jesseduffield/lazygit", trusted: true
+tap "nubjs/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
-tap "px4/px4"
-tap "qmk/qmk"
+tap "qmk/qmk", trusted: true
+# Collection of portable C++ source libraries
+brew "boost"
+# Configuration file parser library written in C
+brew "confuse"
+# Library for communicating with USB and Bluetooth HID devices
+brew "hidapi"
+# Library for USB device access
+brew "libusb"
+# Library to talk to FTDI chips
+brew "libftdi"
+# Library for USB device access
+brew "libusb-compat"
+# Atmel AVR MCU programmer
+brew "avrdude"
+# HID-based USB bootloader for AVR microcontrollers
+brew "bootloadhid"
+# Software library to render fonts
 brew "freetype"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
+# Device firmware update based USB programmer for Atmel chips
+brew "dfu-programmer"
+# USB programmer
+brew "dfu-util"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@77"
+# Integer Set Library for the polyhedral model
+brew "isl"
+# Library for encoding and decoding .avif files
+brew "libavif"
+# Palette quantization library extracted from pnquant2
+brew "libimagequant"
+# C library for multiple-precision floating-point computations
+brew "mpfr"
+# C library for the arithmetic of high precision complex numbers
+brew "libmpc"
+# Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
-brew "readline"
-brew "python@3.13"
-brew "openjdk"
-brew "protobuf"
-brew "apache-arrow"
-brew "asio"
-brew "assimp"
-brew "bat"
-brew "spdlog"
-brew "bear"
-brew "bullet"
+# Library for complex text layout
+brew "libraqm"
+# Utility for directing compilation
+brew "make"
+# Text-based UI library
 brew "ncurses"
-brew "cbonsai"
-brew "ccls"
-brew "eigen"
-brew "pkgconf"
-brew "cjson"
-brew "cmake"
-brew "cmatrix"
-brew "console_bridge"
-brew "libsodium"
-brew "tinyxml2"
-brew "eza"
-brew "fd"
-brew "python@3.12"
-brew "ffmpeg"
-brew "fzf"
-brew "libheif"
-brew "gdal"
-brew "gh"
-brew "graphviz"
-brew "gstreamer"
-brew "imagemagick"
-brew "lld"
-brew "mysql"
-brew "neofetch"
-brew "neovim"
-brew "node"
-brew "opencv"
-brew "php"
-brew "python-tk@3.13"
-brew "qt@5"
-brew "ripgrep"
-brew "starship"
-brew "tmux"
-brew "tokei"
-brew "wb32-dfu-updater_cli"
-brew "zoxide"
-brew "zsh-autosuggestions"
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
-brew "zsh-vi-mode"
-brew "jesseduffield/lazygit/lazygit"
-brew "osrf/simulation/tinyxml1"
-brew "osx-cross/avr/avr-gcc@9"
-brew "px4/px4/px4-dev"
-brew "px4/px4/px4-sim"
+# Friendly PIL fork (Python Imaging Library)
+brew "pillow"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Command-line integration for Teensy USB development boards
+brew "teensy_loader_cli"
+# Command-line interface for Vercel
+brew "vercel"
+# Fast TypeScript runtime and package manager that augments Node
+brew "nubjs/tap/nub", trusted: true
+# GNU Tools for ARM Embedded Processors - Binutils
+brew "osx-cross/arm/arm-none-eabi-binutils", trusted: true
+# GNU Tools for ARM Embedded Processors - GCC
+brew "osx-cross/arm/arm-none-eabi-gcc@8", trusted: true
+# GNU Binutils for the AVR target
+brew "osx-cross/avr/avr-binutils", trusted: true
+# GNU compiler collection for AVR 8-bit and 32-bit Microcontrollers
+brew "osx-cross/avr/avr-gcc@8", trusted: true
+# Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
-cask "adguard-vpn"
-cask "ghdl"
-cask "miniconda"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# Web browser
+cask "firefox"
+cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# GPU-based terminal emulator
+cask "kitty"
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# VPN client focusing on security
+cask "protonvpn"
+# Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
+# System monitor for the menu bar
 cask "stats"
-cask "xquartz"
-vscode "aaron-bond.better-comments"
-vscode "alefragnani.bookmarks"
-vscode "alefragnani.project-manager"
-vscode "amazonwebservices.aws-toolkit-vscode"
-vscode "bradlc.vscode-tailwindcss"
-vscode "catppuccin.catppuccin-vsc"
-vscode "chakrounanas.turbo-console-log"
-vscode "christian-kohler.path-intellisense"
-vscode "dbaeumer.vscode-eslint"
-vscode "digitalbrainstem.javascript-ejs-support"
-vscode "dustypomerleau.rust-syntax"
-vscode "eamodio.gitlens"
-vscode "edonet.vscode-command-runner"
-vscode "enkia.tokyo-night"
-vscode "equinusocio.vsc-material-theme"
-vscode "equinusocio.vsc-material-theme-icons"
-vscode "esbenp.prettier-vscode"
-vscode "figma.figma-vscode-extension"
-vscode "formulahendry.auto-close-tag"
-vscode "formulahendry.auto-complete-tag"
-vscode "formulahendry.auto-rename-tag"
-vscode "formulahendry.code-runner"
-vscode "github.codespaces"
-vscode "github.github-vscode-theme"
-vscode "github.remotehub"
-vscode "github.vscode-github-actions"
-vscode "gruntfuggly.todo-tree"
-vscode "helixquar.randomeverything"
-vscode "ibm.output-colorizer"
-vscode "jeff-hykin.better-cpp-syntax"
-vscode "johnpapa.vscode-peacock"
-vscode "monokai.theme-monokai-pro-vscode"
-vscode "ms-python.black-formatter"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-vscode.azure-repos"
-vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpptools"
-vscode "ms-vscode.cpptools-extension-pack"
-vscode "ms-vscode.cpptools-themes"
-vscode "ms-vscode.live-server"
-vscode "ms-vscode.makefile-tools"
-vscode "ms-vscode.remote-repositories"
-vscode "ms-vscode.vscode-serial-monitor"
-vscode "ms-vsliveshare.vsliveshare"
-vscode "mtxr.sqltools"
-vscode "mtxr.sqltools-driver-mysql"
-vscode "mvllow.rose-pine"
-vscode "oderwat.indent-rainbow"
-vscode "oracle.oracle-java"
-vscode "pkief.material-icon-theme"
-vscode "pnp.polacode"
-vscode "redhat.java"
-vscode "ritwickdey.liveserver"
-vscode "rust-lang.rust-analyzer"
-vscode "sainnhe.gruvbox-material"
-vscode "sdras.night-owl"
-vscode "streetsidesoftware.code-spell-checker"
-vscode "tabnine.tabnine-vscode"
-vscode "tomoki1207.pdf"
-vscode "twxs.cmake"
-vscode "usernamehw.errorlens"
-vscode "vadimcn.vscode-lldb"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
-vscode "vscjava.vscode-java-debug"
-vscode "vscjava.vscode-java-test"
-vscode "vscjava.vscode-maven"
-vscode "vscodevim.vim"
-vscode "wallabyjs.console-ninja"
-vscode "wix.glean"
-vscode "znck.grammarly"
+# Google Chromium, sans integration with Google
+cask "ungoogled-chromium"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+# Network protocol analyzer
+cask "wireshark-app"
+go "github.com/OJ/gobuster/v3"
+cargo "typing-test-tui"
+cargo "typing_test"
