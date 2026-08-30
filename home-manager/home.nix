@@ -128,6 +128,7 @@ in
     ".gitconfig".source = mkSymlink ".gitconfig";
     ".tmux.conf".source = mkSymlink ".tmux.conf";
     ".wezterm.lua".source = mkSymlink ".wezterm.lua";
+    ".aerospace.toml".source = mkSymlink ".aerospace.toml";
     ".config/ghostty/config".source = mkSymlink "ghostty/config";
     ".config/kitty/kitty.conf".source = mkSymlink "kitty.conf";
     ".config/starship.toml".source = mkSymlink "starship.toml";
