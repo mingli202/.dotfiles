@@ -83,13 +83,13 @@ if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
 fi
 
 # evals
-if command -v starship >/dev/null 2>1; then
+if command -v starship >/dev/null 2>&1; then
 	eval "$(starship init zsh)"
 fi
-if command -v zoxide >/dev/null 2>1; then
+if command -v zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init --cmd cd zsh)"
 fi
-if command -v fzf >/dev/null 2>1; then
+if command -v fzf >/dev/null 2>&1; then
 	eval "$(fzf --zsh)"
 fi
 # eval "$(thefuck --alias)"
