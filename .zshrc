@@ -27,8 +27,6 @@ alias ct="TERM=screen-256color ~/dev/Codes/C/ncurses/tetris/bin/tetris"
 alias pn="pnpm"
 alias px="pnpx"
 
-alias mimi="kitten ssh -i ~/.ssh/mcgill_mimi_server 'mliu8@mimi.cs.mcgill.ca'"
-
 alias g="git"
 alias gm="git add . && git commit -m"
 alias gz="git add . && git cz"
