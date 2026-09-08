@@ -94,6 +94,7 @@ in
       python314
       rustup
       ocaml
+      opam # ocaml package managers
 
       # lsp, lint, formatters
       biome
