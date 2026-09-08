@@ -2,13 +2,18 @@
   config,
   additionalPkgs,
   pkgs,
+  lib,
   ...
 }:
 let
-  dotfiles = "${config.home.homeDirectory}/.dotfiles";
+  homeDir = config.home.homeDirectory;
+  configDir = config.xdg.configHome;
+
+  dotfiles = "${homeDir}/.dotfiles";
   mkSymlink = filepath: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${filepath}";
 
   mkBin = name: text: pkgs.writeShellScriptBin name text;
+  mkActivation = script: lib.hm.dag.entryAfter [ "writeBoundry" ] script;
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -47,7 +52,7 @@ in
       #   echo "Hello, ${config.home.username}!"
       # '')
       (mkBin "hm" ''exec home-manager "$@"'')
-      (mkBin "hms" "home-manager switch -b backup")
+      (mkBin "hms" ''home-manager switch -b backup "$@"'')
 
       # general tools
       cmake
@@ -89,10 +94,14 @@ in
 
       # languages
       go
+      python314
       nodejs-slim
       nodejs-slim.npm
-      python314
-      rustup
+
+      cargo
+      rustc
+      clippy
+
       ocaml
       opam # ocaml package managers
 
@@ -158,6 +167,31 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+  };
+
+  home.activation = {
+    initNvimConfig = mkActivation ''
+      if [[ ! -d "$HOME/.config/nvim" ]]; then
+          verboseEcho "cloning nvim config"
+          mkdir -p ${configDir}
+          run ${pkgs.git}/bin/git clone https://github.com/mingli202/nvim_config.git ${configDir}/nvim
+      fi
+    '';
+
+    initTpm = mkActivation ''
+      if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+          verboseEcho "cloning tmux package manager"
+          run mkdir -p ${homeDir}/.tmux/plugins
+          run ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm ${homeDir}/.tmux/plugins/tpm
+      fi
+    '';
+
+    initOpam = mkActivation ''
+      if [ ! -f "$HOME/.opam/config" ]; then
+        verboseEcho "Initializing opam..."
+        run ${pkgs.opam}/bin/opam init --bare --yes
+      fi
+    '';
   };
 
   # Let Home Manager install and manage itself.
