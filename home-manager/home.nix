@@ -93,6 +93,7 @@ in
       nodejs-slim.npm
       python314
       rustup
+      ocaml
 
       # lsp, lint, formatters
       biome
