@@ -104,6 +104,7 @@ in
 
       ocaml
       opam # ocaml package managers
+      ocamlPackages.utop
 
       # lsp, lint, formatters
       biome
