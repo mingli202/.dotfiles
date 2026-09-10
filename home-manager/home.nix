@@ -32,6 +32,8 @@ in
   # Make all home.packages binaries available to every activation hook,
   # including on the first run before the profile is installed.
   home.extraActivationPath = [ config.home.path ];
+  # Also retain host tools (e.g. Ubuntu's apt-cache for opam dependency checks).
+  home.emptyActivationPath = false;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
