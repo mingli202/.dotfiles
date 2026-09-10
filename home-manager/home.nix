@@ -14,7 +14,8 @@ let
   mkSymlink = filepath: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${filepath}";
 
   mkBin = name: text: pkgs.writeShellScriptBin name text;
-  mkActivation = script: lib.hm.dag.entryAfter [ "writeBoundry" ] script;
+  mkActivation = script: lib.hm.dag.entryAfter [ "writeBoundary" "installPackages" ] script;
+
 in
 {
   # Username and home directory are supplied by the flake for this machine.
@@ -27,6 +28,10 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "26.05"; # Please read the comment before changing.
+
+  # Make all home.packages binaries available to every activation hook,
+  # including on the first run before the profile is installed.
+  home.extraActivationPath = [ config.home.path ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -124,6 +129,11 @@ in
       gnumake
       gcc
       gnutar
+      gzip
+      bzip2
+      xz
+      curl
+      patch
     ]
     ++ additionalPkgs pkgs;
 
@@ -194,7 +204,7 @@ in
     initOpam = mkActivation ''
       if [ ! -f "$HOME/.opam/config" ]; then
         verboseEcho "Initializing opam..."
-        run ${pkgs.opam}/bin/opam init --bare --yes
+        run opam init --bare --yes
       fi
     '';
   };
