@@ -213,7 +213,9 @@ in
       # The config check also avoids querying an uninitialized root in dry runs.
       if [ ! -f "$HOME/.opam/config" ] || ! opam switch list --short | grep -Fxq default; then
         verboseEcho "Creating the default opam switch..."
-        run opam switch create default ocaml-system --yes
+        # Nix supplies the compiler/build tools; don't query apt or other
+        # distro package managers for this bootstrap operation.
+        run opam switch create default ocaml-system --no-depexts --yes
       fi
     '';
   };
