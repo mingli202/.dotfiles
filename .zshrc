@@ -35,7 +35,7 @@ alias gp="git push"
 alias ttt="typing-test-tui"
 alias tt="typing_test"
 
-alias cc="codex --yolo"
+alias coc="codex --yolo"
 alias oc="opencode"
 
 # yazi
