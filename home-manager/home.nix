@@ -119,6 +119,12 @@ in
       hello
       sl
     ]
+    # Basic build tools are not necessarily present on a fresh Linux install.
+    ++ lib.optionals pkgs.stdenv.isLinux [
+      gnumake
+      gcc
+      gnutar
+    ]
     ++ additionalPkgs pkgs;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
