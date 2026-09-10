@@ -125,7 +125,7 @@ in
       sl
     ]
     # Basic build tools are not necessarily present on a fresh Linux install.
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.hostPlatform.isLinux [
       gnumake
       gcc
       gnutar

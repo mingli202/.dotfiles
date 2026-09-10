@@ -21,9 +21,11 @@
         {
           system,
           username ? "vincentliu",
-          homeDirectory ? (if nixpkgs.lib.hasSuffix "-darwin" system then "/Users/${username}" else "/home/${username}"),
+          homeDirectory ? (
+            if nixpkgs.lib.hasSuffix "-darwin" system then "/Users/${username}" else "/home/${username}"
+          ),
           dotfilesDirectory ? "${homeDirectory}/.dotfiles",
-          additionalPkgs ? pkgs: nixpkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.zsh ],
+          additionalPkgs ? pkgs: nixpkgs.lib.optionals pkgs.hostPlatform.isLinux [ pkgs.zsh ],
         }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
