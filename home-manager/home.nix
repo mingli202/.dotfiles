@@ -1,6 +1,7 @@
 {
   config,
   additionalPkgs,
+  dotfilesDirectory,
   pkgs,
   lib,
   ...
@@ -9,21 +10,14 @@ let
   homeDir = config.home.homeDirectory;
   configDir = config.xdg.configHome;
 
-  dotfiles = "${homeDir}/.dotfiles";
+  dotfiles = dotfilesDirectory;
   mkSymlink = filepath: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${filepath}";
 
   mkBin = name: text: pkgs.writeShellScriptBin name text;
   mkActivation = script: lib.hm.dag.entryAfter [ "writeBoundry" ] script;
 in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "vincentliu";
-  home.homeDirectory =
-    if pkgs.stdenv.isDarwin then
-      "/Users/${config.home.username}"
-    else
-      "/home/${config.home.username}";
+  # Username and home directory are supplied by the flake for this machine.
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
