@@ -93,7 +93,6 @@ in
       tree-sitter
 
       # package managers
-      bun
       pnpm
       uv
 
@@ -127,7 +126,7 @@ in
       sl
     ]
     # Basic build tools are not necessarily present on a fresh Linux install.
-    ++ lib.optionals pkgs.hostPlatform.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       gnumake
       gcc
       gnutar
@@ -216,6 +215,27 @@ in
         # Nix supplies the compiler/build tools; don't query apt or other
         # distro package managers for this bootstrap operation.
         run opam switch create default ocaml-system --no-depexts --yes
+      fi
+    '';
+
+    installBun = mkActivation ''
+      if [ ! -x "$HOME/.bun/bin/bun" ]; then
+        verboseEcho "Installing bun"
+
+        run ${pkgs.bash}/bin/bash -euo pipefail -c '
+          BUN_INSTALL="$HOME/.bun" ${pkgs.curl}/bin/curl -fsSL https://bun.com/install | ${pkgs.bash}/bin/bash   
+        '
+
+      fi
+    '';
+
+    installOmp = lib.hm.dag.entryAfter [ "installBun" ] ''
+      if [ ! -x "$HOME/.bun/bin/omp" ]; then
+        verboseEcho "Installing oh-my-pi"
+
+        run ${pkgs.bash}/bin/bash -euo pipefail -c '
+           BUN_INSTALL="$HOME/.bun" "$BUN_INSTALL/bin/bun" install -g @oh-my-pi/pi-coding-agent
+        '
       fi
     '';
   };

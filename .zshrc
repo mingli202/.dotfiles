@@ -106,3 +106,10 @@ typeset -U path PATH
 
 # Binaries installed in the default opam switch (no completions or prompt hook)
 export PATH="$HOME/.opam/default/bin:$PATH"
+
+# bun completions
+[ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
