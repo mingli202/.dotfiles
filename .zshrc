@@ -47,6 +47,17 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+function logisim {
+	local logisim_path="$HOME/Downloads/logisim-evolution-3.8.0-all.jar"
+
+	if [ ! -f "$logisim_path" ]; then
+		echo "Logisim evolution doesn't exist at path $logisim_path"
+		return 2
+	fi
+
+	nix shell nixpkgs#openjdk --command java -jar ~/Downloads/logisim-evolution-3.8.0-all.jar "$@"
+}
+
 export VISUAL="nvim"
 export EDITOR="nvim"
 
@@ -73,8 +84,8 @@ setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
 # zsh plugins
 # vim mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
-ZVM_INIT_MODE=sourcing
+export ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+export ZVM_INIT_MODE=sourcing
 source "$HOME/.local/state/nix/profiles/profile/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # autosuggestions
