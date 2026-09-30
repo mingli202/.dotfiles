@@ -48,14 +48,20 @@ function y() {
 }
 
 function logisim {
-	local logisim_path="$HOME/Downloads/logisim-evolution-3.8.0-all.jar"
+	local logisim_path="$HOME/Downloads/logisim-evolution-3.9.0dev-all.jar"
+	local jdk="$HOME/.local/state/logisim-jdk"
 
 	if [ ! -f "$logisim_path" ]; then
 		echo "Logisim evolution doesn't exist at path $logisim_path"
 		return 2
 	fi
 
-	nix shell nixpkgs#openjdk --command java -jar ~/Downloads/logisim-evolution-3.8.0-all.jar "$@"
+	if [ ! -e "$jdk" ]; then
+		mkdir -p "${jdk:h}"
+		nix build nixpkgs#openjdk --out-link "$jdk" || return 1
+	fi
+
+	"$jdk/bin/java" -jar "$logisim_path" "$@"
 }
 
 export VISUAL="nvim"
@@ -124,3 +130,6 @@ export PATH="$HOME/.opam/default/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# local bin
+export PATH="$HOME/.local/bin:$PATH"
