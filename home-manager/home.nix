@@ -72,6 +72,7 @@ in
       pkg-config
       unzip
       helix
+      vis
 
       zsh-autosuggestions
       zsh-syntax-highlighting
