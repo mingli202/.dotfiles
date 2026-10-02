@@ -71,6 +71,7 @@ in
       tokei
       pkg-config
       unzip
+      helix
 
       zsh-autosuggestions
       zsh-syntax-highlighting
