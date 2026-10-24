@@ -8,7 +8,6 @@ alias l="ls"
 alias v="nvim"
 alias nv="neovide --frame buttonless"
 alias t="tmux"
-alias vi="~/.nix-profile/bin/vis"
 
 alias fz="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias vf="nvim \$(fz)"

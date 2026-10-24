@@ -164,6 +164,7 @@ in
 
     ".config/zed/settings.json".source = mkSymlink "zed/settings.json";
     ".config/zed/keymap.json".source = mkSymlink "zed/keymap.json";
+    ".config/vis".source = mkSymlink "vis";
   };
 
   # Home Manager can also manage your environment variables through
