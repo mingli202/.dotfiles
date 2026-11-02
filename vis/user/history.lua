@@ -1,6 +1,12 @@
 --- makes a new history
 --- made up of a map and a double linked list
-local new_history = function()
+--- if the dlist reaches max_len, it will drop the oldest files
+--- when adding new ones
+local new_history = function(max_len)
+    if max_len == nil then
+        max_len = 100
+    end
+
     -- type Node = {next: Node | nil, prev: Node | nil, id: string, value: File}
     -- map of id to node
     local map = {}
@@ -77,6 +83,10 @@ local new_history = function()
             node = { id = id, value = file }
             dlist.len = dlist.len + 1
             map[id] = node
+
+            if dlist.len > max_len then
+                remove(dlist.tail.value)
+            end
         end
         link_front(node)
         return node
@@ -103,10 +113,10 @@ local new_history = function()
 
 
     return {
-        push_front = push_front,
         remove = remove,
         touch = touch,
         len = len,
+        has = has,
         to_array = to_array,
     }
 end
