@@ -102,6 +102,22 @@ bindkey '^y' autosuggest-accept
 # syntax highlihting
 source "$HOME/.local/state/nix/profiles/profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# custom paths
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
+export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# local bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# Binaries installed in the default opam switch (no completions or prompt hook)
+export PATH="$HOME/.opam/default/bin:$PATH"
+
 # evals
 if command -v starship >/dev/null 2>&1; then
 	eval "$(starship init zsh)"
@@ -113,23 +129,7 @@ if command -v fzf >/dev/null 2>&1; then
 	eval "$(fzf --zsh)"
 fi
 
-# custom paths
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
-export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
-
 typeset -U path PATH
-
-# Binaries installed in the default opam switch (no completions or prompt hook)
-export PATH="$HOME/.opam/default/bin:$PATH"
 
 # bun completions
 [ -s "/Users/vincentliu/.bun/_bun" ] && source "/Users/vincentliu/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# local bin
-export PATH="$HOME/.local/bin:$PATH"
