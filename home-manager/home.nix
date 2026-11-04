@@ -107,6 +107,7 @@ in
       cargo
       rustc
       clippy
+      rustfmt
 
       ocaml
       opam # ocaml package managers
