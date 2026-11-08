@@ -121,7 +121,6 @@ in
       typescript
       biome
 
-      clangd
       taplo
       jq
       nixfmt
