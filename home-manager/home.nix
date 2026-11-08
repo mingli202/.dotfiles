@@ -127,6 +127,7 @@ in
       fortune
       hello
       sl
+      yt-dlp
     ]
     # Basic build tools are not necessarily present on a fresh Linux install.
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
