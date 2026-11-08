@@ -1,0 +1,12 @@
+[[language]]
+name = "typescript"
+language-servers = ["tsc"]
+
+[[language]]
+name = "c"
+formatter = ["clang-format"]
+
+
+[language-server.tsc]
+command = "tsc"
+args = ["--lsp", "--stdio"]

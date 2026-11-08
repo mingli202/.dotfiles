@@ -1,1 +1,25 @@
-theme = "onedark"
+theme = "gruvbox-material"
+
+[editor]
+line-number = "relative"
+cursorline = true
+preview-completion-insert = false
+bufferline = "always"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.normal]
+C-d = ["page_cursor_half_down", "align_view_center"]
+C-u = ["page_cursor_half_up", "align_view_center"]
+tab = ":bn"
+S-tab = ":bp"
+
+[keys.normal.space]
+c = { b = ":bc" }

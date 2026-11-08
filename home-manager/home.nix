@@ -113,9 +113,16 @@ in
       opam # ocaml package managers
       ocamlPackages.utop
 
-      # lsp, lint, formatters
+      # lsps, lint, formatters
+      rust-analyzer
+      ty
+      mypy
+
+      typescript
       biome
-      ccls
+
+      clangd
+      taplo
       jq
       nixfmt
 
@@ -163,7 +170,7 @@ in
     ".config/ghostty/config".source = mkSymlink "ghostty/config";
     ".config/kitty/kitty.conf".source = mkSymlink "kitty.conf";
     ".config/starship.toml".source = mkSymlink "starship.toml";
-    ".config/helix/config.toml".source = mkSymlink "helix/config.toml";
+    ".config/helix".source = mkSymlink "helix";
 
     ".config/zed/settings.json".source = mkSymlink "zed/settings.json";
     ".config/zed/keymap.json".source = mkSymlink "zed/keymap.json";
