@@ -6,7 +6,6 @@ language-servers = ["tsc"]
 name = "c"
 formatter = ["clang-format"]
 
-
 [language-server.tsc]
 command = "tsc"
 args = ["--lsp", "--stdio"]

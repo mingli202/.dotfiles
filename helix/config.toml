@@ -3,7 +3,6 @@ theme = "gruvbox-material"
 [editor]
 line-number = "relative"
 cursorline = true
-preview-completion-insert = false
 bufferline = "always"
 
 [editor.cursor-shape]
@@ -12,14 +11,27 @@ insert = "bar"
 [editor.file-picker]
 hidden = false
 
+[editor.indent-guides]
+render = true
+
+[editor.smart-tab]
+supersede-menu = true
+
 [keys.insert]
 j = { k = "normal_mode" }
+S-tab = "move_parent_node_start"
 
 [keys.normal]
 C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
 tab = ":bn"
 S-tab = ":bp"
+# D = ["diagnostics_hover"]
+G = ["goto_file_end"]
+
+[keys.select]
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
 
 [keys.normal.space]
 c = { b = ":bc" }
