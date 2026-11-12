@@ -73,7 +73,6 @@ in
       unzip
       helix
       vis
-      mold
 
       zsh-autosuggestions
       zsh-syntax-highlighting
