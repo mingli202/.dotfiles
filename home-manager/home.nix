@@ -73,6 +73,7 @@ in
       unzip
       helix
       vis
+      mold
 
       zsh-autosuggestions
       zsh-syntax-highlighting
@@ -112,6 +113,8 @@ in
       ocaml
       opam # ocaml package managers
       ocamlPackages.utop
+      ocamlPackages.ocaml-lsp
+      ocamlformat
 
       # lsps, lint, formatters
       rust-analyzer

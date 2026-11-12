@@ -17,6 +17,9 @@ render = true
 [editor.smart-tab]
 supersede-menu = true
 
+[editor.inline-diagnostics]
+cursor-line = "disable"
+
 [keys.insert]
 j = { k = "normal_mode" }
 S-tab = "move_parent_node_start"
@@ -26,7 +29,7 @@ C-d = ["page_cursor_half_down", "align_view_center"]
 C-u = ["page_cursor_half_up", "align_view_center"]
 tab = ":bn"
 S-tab = ":bp"
-# D = ["diagnostics_hover"]
+D = ["diagnostics_hover"]
 G = ["goto_file_end"]
 
 [keys.select]
