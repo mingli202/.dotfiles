@@ -71,7 +71,6 @@ in
       tokei
       pkg-config
       unzip
-      helix
       vis
 
       zsh-autosuggestions
@@ -250,6 +249,19 @@ in
         run ${pkgs.bash}/bin/bash -euo pipefail -c '
            BUN_INSTALL="$HOME/.bun" "$BUN_INSTALL/bin/bun" install -g @oh-my-pi/pi-coding-agent
         '
+      fi
+    '';
+
+    installHelix = mkActivation ''
+      if [ ! -d "$HOME/dev/helix-fork" ]; then
+        verboseEcho "Cloning helix from mingli202"
+
+        run ${pkgs.git}/bin/git clone https://github.com/mingli202/helix --single-branch --branch personal "$HOME/dev/helix-fork"
+      fi
+
+      if ! command -v hx >/dev/null 2>&1; then
+        run ${pkgs.cargo}/bin/cargo install --path "$HOME/dev/helix-fork" --locked
+        run hx --grammar fetch && hx --grammar build
       fi
     '';
   };
