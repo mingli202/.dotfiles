@@ -6,19 +6,6 @@ language-servers = ["tsc"]
 name = "c"
 formatter = ["clang-format"]
 
-[[language]]
-name = "asm"
-comment-token = ";"
-scope = "source.asm"
-file-types = ["asm", "s"]
-injection-regex = "asm"
-
-indent = { tab-width = 4, unit = "    " }
-
 [language-server.tsc]
 command = "tsc"
 args = ["--lsp", "--stdio"]
-
-[[grammar]]
-name = "asm"
-source = { git = "https://github.com/RubixDev/tree-sitter-asm", rev = "839741fef4dab5128952334624905c82b40c7133" }

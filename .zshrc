@@ -48,6 +48,30 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# build hx from the fork with its runtime baked in, then build grammars into the fork's runtime
+# usage: hx-install [--pull]
+function hx-install {
+	local repo="$HOME/dev/helix-fork"
+
+	if [ ! -d "$repo" ]; then
+		git clone https://github.com/mingli202/helix --branch personal "$repo" || return 1
+	fi
+
+	(
+		cd "$repo" || exit 1
+
+		if [ "$1" = "--pull" ]; then
+			git pull --ff-only || exit 1
+		fi
+
+		echo "building hx from $(git branch --show-current) @ $(git rev-parse --short HEAD)"
+		HELIX_DEFAULT_RUNTIME="$repo/runtime" cargo install --path helix-term --locked || exit 1
+
+		CARGO_MANIFEST_DIR="$repo/helix-term" "$HOME/.cargo/bin/hx" --grammar fetch || exit 1
+		CARGO_MANIFEST_DIR="$repo/helix-term" "$HOME/.cargo/bin/hx" --grammar build || exit 1
+	)
+}
+
 function logisim {
 	local logisim_path="$HOME/Downloads/logisim-evolution-3.9.0dev-all.jar"
 	local jdk="$HOME/.local/state/logisim-jdk"
