@@ -263,12 +263,8 @@ in
         verboseEcho "building hx"
 
         # bake the fork's runtime dir into the binary so ~/.config/helix/runtime isn't needed
-        run env HELIX_DEFAULT_RUNTIME="$HOME/dev/helix-fork/runtime" \
+        run env GIT_CONFIG_GLOBAL="/dev/null" HELIX_DEFAULT_RUNTIME="$HOME/dev/helix-fork/runtime" \
           ${pkgs.cargo}/bin/cargo install --path "$HOME/dev/helix-fork/helix-term" --locked
-
-        # CARGO_MANIFEST_DIR makes the fork's runtime the first runtime dir, so grammars are built there
-        run env CARGO_MANIFEST_DIR="$HOME/dev/helix-fork/helix-term" "$HOME/.cargo/bin/hx" --grammar fetch
-        run env CARGO_MANIFEST_DIR="$HOME/dev/helix-fork/helix-term" "$HOME/.cargo/bin/hx" --grammar build
       fi
     '';
   };

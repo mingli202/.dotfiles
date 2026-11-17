@@ -65,10 +65,7 @@ function hx-install {
 		fi
 
 		echo "building hx from $(git branch --show-current) @ $(git rev-parse --short HEAD)"
-		HELIX_DEFAULT_RUNTIME="$repo/runtime" cargo install --path helix-term --locked || exit 1
-
-		CARGO_MANIFEST_DIR="$repo/helix-term" "$HOME/.cargo/bin/hx" --grammar fetch || exit 1
-		CARGO_MANIFEST_DIR="$repo/helix-term" "$HOME/.cargo/bin/hx" --grammar build || exit 1
+		GIT_CONFIG_GLOBAL="/dev/null" HELIX_DEFAULT_RUNTIME="$repo/runtime" cargo install --path helix-term --locked || exit 1
 	)
 }
 
