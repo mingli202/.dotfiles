@@ -4,6 +4,7 @@ theme = "gruvbox-material"
 line-number = "relative"
 cursorline = true
 bufferline = "always"
+rulers = [100]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -35,6 +36,7 @@ G = ["goto_file_end"]
 [keys.select]
 tab = "extend_parent_node_end"
 S-tab = "extend_parent_node_start"
+G = ["goto_file_end"]
 
 [keys.normal.space]
 c = { b = ":bc" }
