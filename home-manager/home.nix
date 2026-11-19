@@ -97,30 +97,30 @@ in
       pnpm
       uv
 
-      # languages
+      # languages + lsps
       go
+      gopls
+
       python314
+      ty
+      mypy
+
       nodejs-slim
       nodejs-slim.npm
+      typescript
+      biome
 
       cargo
       rustc
       clippy
       rustfmt
+      rust-analyzer
 
       ocaml
       opam # ocaml package managers
       ocamlPackages.utop
       ocamlPackages.ocaml-lsp
       ocamlformat
-
-      # lsps, lint, formatters
-      rust-analyzer
-      ty
-      mypy
-
-      typescript
-      biome
 
       taplo
       jq
