@@ -3,9 +3,17 @@ name = "typescript"
 language-servers = ["tsc"]
 
 [[language]]
+name = "javascript"
+language-servers = ["tsc"]
+
+[[language]]
+name = "tsx"
+language-servers = ["tsc"]
+
+[[language]]
+name = "jsx"
+language-servers = ["tsc"]
+
+[[language]]
 name = "c"
 formatter = ["clang-format"]
-
-[language-server.tsc]
-command = "tsc"
-args = ["--lsp", "--stdio"]
